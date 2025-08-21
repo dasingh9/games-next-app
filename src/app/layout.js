@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,9 +20,84 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossOrigin="anonymous" />
+      </head>
+
+      <body>
+        <button className="toggle-button">☰</button>
+
+        <div className="page">
+          <div className="left-panel">
+            <Logo></Logo>
+            <LeftNavigation></LeftNavigation>
+          </div>
+
+          <div className="right-panel">
+            <TopNavigation></TopNavigation>
+            <div className="content">
+              {children}
+            </div>
+          </div>
+        </div>
       </body>
     </html>
+  );
+}
+
+function Logo() {
+  return (
+    <div className="logo">
+      <span className="my-logo-icon"></span>
+      <span className="logo-text">&lt;Web 2025 /&gt;</span>
+    </div>
+  );
+}
+
+function LeftNavigation() {
+  return (
+    <nav className="left-menu" aria-label="Main navigation">
+      <ul>
+        <li className="menu-home"><Link href="/">Home</Link></li>
+        <li><Link href="/dashboard">Dashboard</Link></li>
+        <li><Link href="/games">Games</Link></li>
+        <li><Link href="/about">About</Link></li>
+      </ul>
+    </nav>
+  )
+}
+
+function TopNavigation() {
+  return (
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">Navbar</a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/games">Games</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/about">About</a>
+            </li>
+          </ul>
+          <form className="d-flex" role="search">
+            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button className="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
   );
 }
