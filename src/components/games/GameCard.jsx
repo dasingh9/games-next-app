@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-function Thumbnail({url}) {
+function Thumbnail({ url }) {
     return (
         <img src={url} alt="Game Image" />
     )
@@ -17,12 +17,26 @@ function Thumbnail({url}) {
 export function GameCard({ game, children }) {
 
     //card style used just for demo purpose, otherwise this can be removed
-    const cardStyle = { 
-        backgroundColor:"white",
+    const cardStyle = {
+        backgroundColor: "white",
         border: "0px solid green"
     };
 
     return (
+        <div className="card" style={cardStyle}>
+            <Thumbnail url={game.thumbnail} />
+            <div className="card-content">
+                <h3 className="game-title">{game.title}</h3>
+                <p className="game-description">{game.shortDescription}</p>
+                <a className="play-btn" href={game.gameUrl} target="_blank">Play</a>
+            </div>
+        </div>
+    )
+
+
+    {
+        /* 
+        // MUI sample card
         <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
                 <CardMedia component="img" height="140" alt="iguana"
@@ -43,20 +57,6 @@ export function GameCard({ game, children }) {
                 </Link>
             </CardActions>
         </Card>
-    )
-
-
-    {
-        // Here's the normal HMTL/CSS version of Game Card if you don't want to use MUI
-        /*
-        <div className="card" style={cardStyle}>
-            <Thumbnail url={game.thumbnail}/>
-            <div className="card-content">
-                <h3 className="game-title">{game.title}</h3>
-                <p className="game-description">{game.shortDescription}</p>
-                <a className="play-btn" href={game.gameUrl} target="_blank">Play</a>
-            </div>
-        </div>
         */
     }
 }

@@ -1,4 +1,4 @@
-import GameService from "@/lib/services/GameService";
+import GameService from "@/lib/services/gameService";
 
 const gameService = new GameService();
 
