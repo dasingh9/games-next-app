@@ -1,4 +1,4 @@
-import GameService from "../../../lib/services/gameService";
+import GameService from "../../../lib/services/GameService";
 import { ResponseBuilder } from "../../../lib/responseBuilder";
 
 const gameService = new GameService();
