@@ -1,4 +1,4 @@
-import { ValidationError } from '../errors/api-error.js';
+import { ValidationError } from '../errors/api-error';
 
 export class GameValidator {
   static validateCreate(game) {

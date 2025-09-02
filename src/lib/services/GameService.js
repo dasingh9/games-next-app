@@ -1,6 +1,6 @@
-import { GameDao } from '../dao/gameDao.js';
-import { GameValidator } from '../validators/gameValidator.js';
-import { RecordNotFoundError } from '../errors/api-error.js';
+import { GameDao } from '../dao/GameDao';
+import { GameValidator } from '../validators/GameValidator';
+import { RecordNotFoundError } from '../errors/api-error';
 
 export default class GameService {
     constructor(gameDao = new GameDao()) {

@@ -1,6 +1,3 @@
-import initDB from '../../../lib/db/dbConnect.js';
-
-await initDB();
 import EmployeeService from '../../../lib/services/EmployeeService.js';
 
 const service = new EmployeeService();

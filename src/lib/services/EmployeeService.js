@@ -1,5 +1,5 @@
-import EmployeeDao from '../dao/EmployeeDao.js';
-import { validateCreate, validateUpdate } from '../validators/employeeValidator.js';
+import EmployeeDao from '../dao/EmployeeDao';
+import { validateCreate, validateUpdate } from '../validators/EmployeeValidator';
 
 export default class EmployeeService {
   constructor(dao = new EmployeeDao()) {

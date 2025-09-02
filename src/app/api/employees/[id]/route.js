@@ -1,12 +1,10 @@
-import initDB from '../../../../lib/db/dbConnect.js';
-
-await initDB();
 import EmployeeService from '../../../../lib/services/EmployeeService.js';
 
 const service = new EmployeeService();
 
 export async function GET(req, { params }) {
-  const employee = await service.getById(params.id);
+  const { id } = await params;
+  const employee = await service.getById(id);
   if (!employee) {
     return new Response(JSON.stringify({ error: 'Employee not found' }), {
       status: 404,
@@ -21,8 +19,9 @@ export async function GET(req, { params }) {
 
 export async function PUT(req, { params }) {
   try {
-    const data = await req.json();
-    const updated = await service.update(params.id, data);
+  const data = await req.json();
+  const { id } = await params;
+  const updated = await service.update(id, data);
     if (!updated) {
       return new Response(JSON.stringify({ error: 'Employee not found' }), {
         status: 404,
@@ -42,7 +41,8 @@ export async function PUT(req, { params }) {
 }
 
 export async function DELETE(req, { params }) {
-  const deleted = await service.delete(params.id);
+  const { id } = await params;
+  const deleted = await service.delete(id);
   if (!deleted) {
     return new Response(JSON.stringify({ error: 'Employee not found' }), {
       status: 404,

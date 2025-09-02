@@ -10,7 +10,7 @@ export const employeeUpdateSchema = z.object({
   name: z.string().min(1).optional(),
   email: z.string().email().optional(),
   department: z.string().optional(),
-  isActive: z.boolean().optional(),
+  isActive: z.number().optional(),
 });
 
 export function validateCreate(data) {

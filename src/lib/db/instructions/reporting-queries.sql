@@ -11,7 +11,8 @@ FROM Employees e
 INNER JOIN Departments d ON e.deptId = d.deptId
 INNER JOIN Wages w ON e.empId = w.empId
 GROUP BY d.deptName;
-Find Employees with Salary Between 80k–90k
+
+--Find Employees with Salary Between 80k–90k
 SELECT e.empId, e.name, w.baseSalary
 FROM Employees e
 INNER JOIN Wages w ON e.empId = w.empId

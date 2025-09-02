@@ -1,4 +1,4 @@
-import { ValidationError, RecordNotFoundError } from './errors/api-error.js';
+import { ValidationError, RecordNotFoundError } from './errors/api-error';
 
 export class ResponseBuilder {
     static errorResponse(error) {
