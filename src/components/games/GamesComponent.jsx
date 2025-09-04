@@ -1,5 +1,5 @@
 import { GamesList } from "./GamesList";
-import GameService from "../../lib/services/gameService";
+import GameService from "../../lib/services/GameService";
 import { GamesFilter } from "./GamesFilter";
 import { Flexbox } from "../shared/Flexbox";
 import AddNewGame from "./AddNewGame";
