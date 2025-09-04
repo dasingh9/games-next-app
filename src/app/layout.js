@@ -61,6 +61,7 @@ function LeftNavigation() {
         <li className="menu-home"><Link href="/">Home</Link></li>
         <li><Link href="/dashboard">Dashboard</Link></li>
         <li><Link href="/games">Games</Link></li>
+        <li><Link href="/employees">Employees</Link></li>
         <li><Link href="/about">About</Link></li>
       </ul>
     </nav>
