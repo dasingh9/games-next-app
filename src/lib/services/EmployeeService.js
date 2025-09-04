@@ -6,9 +6,9 @@ export default class EmployeeService {
     this.dao = dao;
   }
 
-  async create(data) {
-    validateCreate(data);
-    return await this.dao.create(data);
+  async create(employee) {
+    validateCreate(employee);
+    return await this.dao.create(employee);
   }
 
   async getById(id) {
@@ -19,9 +19,9 @@ export default class EmployeeService {
     return await this.dao.findAll();
   }
 
-  async update(id, data) {
-    validateUpdate(data);
-    return await this.dao.update(id, data);
+  async update(id, employee) {
+    validateUpdate(employee);
+    return await this.dao.update(id, employee);
   }
 
   async delete(id) {
